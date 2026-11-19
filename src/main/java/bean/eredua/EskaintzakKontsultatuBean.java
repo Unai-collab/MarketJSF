@@ -8,7 +8,7 @@ import jakarta.inject.Named;
 import businessLogic.BLFacade;
 import domain.Sale;
 
-@Named("eskaintzakKontsultatuBean")
+@Named("eskaintzakKontsultatuBean")//komentarioa github
 @SessionScoped
 public class EskaintzakKontsultatuBean implements Serializable {
     private static final long serialVersionUID = 1L;
