@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      xmlns:p="primefaces">
+
+<h:head>
+    <title>Eskaintza Sortu - MarketJSF</title>
+</h:head>
+<h:body>
+    <h2>Eskaintza berria sortu</h2>
+
+    <h:form id="sortuForm">
+        <h:panelGrid columns="3">
+            <h:outputLabel for="tituloa" value="Izenburua:" />
+            <h:inputText id="tituloa" value="#{sortuEskaintzaBean.tituloa}" required="true" 
+                         requiredMessage="Izenburua ezin da hutsik egon" />
+            <h:message for="tituloa" />
+
+            <h:outputLabel for="deskripzioa" value="Deskripzioa:" />
+            <h:inputTextarea id="deskripzioa" value="#{sortuEskaintzaBean.deskripzioa}" rows="3" cols="25" />
+            <h:message for="deskripzioa"/>
+
+            <h:outputLabel for="prezioa" value="Prezioa:" />
+            <h:inputText id="prezioa" value="#{sortuEskaintzaBean.prezioa}" required="true">
+                <f:validateDoubleRange minimum="0.01" />
+            </h:inputText>
+            <h:message for="prezioa"/>
+
+            <h:outputLabel for="sellerEmail" value="Email seller:" />
+            <h:inputText id="sellerEmail" value="#{sortuEskaintzaBean.sellerEmail}" required="true" />
+            <h:message for="sellerEmail"/>
+        </h:panelGrid>
+
+        <br/>
+        <h:commandButton value="Sortu Eskaintza" action="#{sortuEskaintzaBean.sortuEskaintza()}" />
+        <br/><br/>
+         <br/>
+        <h:button value="Hasierara bueltatu" outcome="Hasiera.xhtml" />
+        <br/><br/>
+
+        <h:messages globalOnly="true"/>
+    </h:form>
+</h:body>
+</html>
