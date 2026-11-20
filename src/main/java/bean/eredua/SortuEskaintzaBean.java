@@ -61,7 +61,7 @@ public class SortuEskaintzaBean implements Serializable {
                 new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error:", "Data gaur baino beranduago izan behar da."));
         } catch (ParamNullException e) {
             FacesContext.getCurrentInstance().addMessage(null, 
-                new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error:", "Eremu guztiak bete behar dira (Faltan parámetros)."));
+                new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error:", "Eremu guztiak bete behar dira."));
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, 
                 new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error:", e.getMessage()));

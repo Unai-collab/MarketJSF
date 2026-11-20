@@ -1,55 +1,61 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="jakarta.faces.html"
-      xmlns:f="jakarta.faces.core"
-      xmlns:p="primefaces">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="jakarta.faces.html"
+	xmlns:f="jakarta.faces.core" xmlns:p="primefaces">
 
 <h:head>
-    <title>Eskaintzak Kontsultatu - MarketJSF</title>
+	<title>Eskaintzak Kontsultatu - MarketJSF</title>
 </h:head>
 <h:body>
-    <h2>Eskaintzak bilatu eta kontsultatu </h2>
+	<h2>Eskaintzak bilatu eta kontsultatu</h2>
 
-    <h:form id="kontsultatuForm">
-        <!-- Buscador -->
-        <h:panelGrid columns="3">
-            <h:outputLabel for="testua" value="Testua:" />
-            <h:inputText id="testua" value="#{eskaintzakKontsultatuBean.testua}" />
-            <h:commandButton value="Bilatu" action="#{eskaintzakKontsultatuBean.bilatu()}" />
-        </h:panelGrid>
+	<h:form id="kontsultatuForm">
+		<!-- Buscador -->
+		<h:panelGrid columns="3">
+			<h:outputLabel for="testua" value="Testua:" />
+			<h:inputText id="testua" value="#{eskaintzakKontsultatuBean.testua}" />
+			<h:commandButton value="Bilatu"
+				action="#{eskaintzakKontsultatuBean.bilatu()}" />
+		</h:panelGrid>
 
-        <br/>
+		<br />
 
-       
-        <h3>Eskaintzak:</h3>
-        <p:dataTable id="taulaEskaintzak" value="#{eskaintzakKontsultatuBean.eskaintzak}" var="item"
-                     selectionMode="single" selection="#{eskaintzakKontsultatuBean.aukeratutakoEskaintza}"
-                     rowKey="#{item.title}" border="1" style="width: 80%">
-            
-           
-           
 
-            <p:column headerText="Izenburua">
-                <h:outputText value="#{item.title}" />
-            </p:column>
+		<h3>Eskaintzak:</h3>
+		<p:dataTable id="taulaEskaintzak"
+			value="#{eskaintzakKontsultatuBean.eskaintzak}" var="item"
+			selectionMode="single"
+			selection="#{eskaintzakKontsultatuBean.aukeratutakoEskaintza}"
+			rowKey="#{item.title}" border="1" style="width: 80%">
 
-            <p:column headerText="Prezioa">
-                <h:outputText value="#{item.price}" />
-            </p:column>
 
-            <p:column headerText="Argitarapen eguna">
-                <h:outputText value="#{item.publicationDate}">
-                    <f:convertDateTime pattern="dd/MM/yyyy" />
-                </h:outputText>
-            </p:column>
-        </p:dataTable>
 
-        <br/><br/>
+			<p:column headerText="Izenburua">
+				<h:outputText value="#{item.title}" />
+			</p:column>
 
-        <br/>
-        <h:button value="Hasierara bueltatu" outcome="Hasiera.xhtml" />
-        <br/><br/>
-        <h:messages globalOnly="true" />
-    </h:form>
+			<p:column headerText="Prezioa">
+				<h:outputText value="#{item.price}" />
+			</p:column>
+
+			<p:column headerText="Argitarapen eguna">
+				<h:outputText value="#{item.publicationDate}">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</h:outputText>
+			</p:column>
+			<p:column>
+				<f:facet name="header">Akzioa</f:facet>
+				<h:commandButton value="Ikusi" action="#{eskaintzakKontsultatuBean.ikusiEskaintza(item)}" />
+			</p:column>
+		</p:dataTable>
+
+		<br />
+		<br />
+
+		<br />
+		<h:button value="Hasierara bueltatu" outcome="Hasiera.xhtml" />
+		<br />
+		<br />
+		<h:messages globalOnly="true" />
+	</h:form>
 </h:body>
 </html>

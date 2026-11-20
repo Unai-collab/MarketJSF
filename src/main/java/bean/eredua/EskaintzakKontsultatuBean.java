@@ -8,7 +8,7 @@ import jakarta.inject.Named;
 import businessLogic.BLFacade;
 import domain.Sale;
 
-@Named("eskaintzakKontsultatuBean")//komentarioa github sdfas sdff
+@Named("eskaintzakKontsultatuBean")
 @SessionScoped
 public class EskaintzakKontsultatuBean implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -50,5 +50,10 @@ public class EskaintzakKontsultatuBean implements Serializable {
         eskaintzak = facade.getSales(testua != null ? testua : "");
         aukeratutakoEskaintza = null; 
         return null;
+    }
+    
+    public String ikusiEskaintza(Sale sale) {
+        this.aukeratutakoEskaintza = sale;
+        return "EskaintzaIkusi.xhtml?faces-redirect=true";
     }
 }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core">
+
+<h:head>
+    <title>Eskaintzaren Xehetasunak - MarketJSF</title>
+</h:head>
+<h:body>
+    <h2>Eskaintzaren Xehetasunak </h2>
+
+    <h:panelGroup rendered="#{eskaintzakKontsultatuBean.aukeratutakoEskaintza != null}">
+        <fieldset style="width: 50%; padding: 20px; background-color: #f9f9f9;">
+            <legend><b>#{eskaintzakKontsultatuBean.aukeratutakoEskaintza.title}</b></legend>
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputLabel value="Izenburua:" />
+                <h:outputText value="#{eskaintzakKontsultatuBean.aukeratutakoEskaintza.title}" style="font-weight:bold" />
+
+                <h:outputLabel value="Deskripzioa:" />
+                <h:outputText value="#{eskaintzakKontsultatuBean.aukeratutakoEskaintza.description}" />
+
+                <h:outputLabel value="Prezioa:" />
+                <h:outputText value="#{eskaintzakKontsultatuBean.aukeratutakoEskaintza.price} €" />
+
+                <h:outputLabel value="Egoera:" />
+                <h:outputText value="#{eskaintzakKontsultatuBean.aukeratutakoEskaintza.status}" />
+
+                <h:outputLabel value="Argitarapen Data:" />
+                <h:outputText value="#{eskaintzakKontsultatuBean.aukeratutakoEskaintza.publicationDate}">
+                    <f:convertDateTime pattern="dd/MM/yyyy" />
+                </h:outputText>
+            </h:panelGrid>
+        </fieldset>
+    </h:panelGroup>
+
+    <br/>
+    <h:button value="Atzera" outcome="EskaintzakKontsultatu.xhtml" />
+</h:body>
+</html>
