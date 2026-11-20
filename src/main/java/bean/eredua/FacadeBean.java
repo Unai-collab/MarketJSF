@@ -20,5 +20,5 @@ public class FacadeBean {
             }
         }
         return facadeInterface;
-    }
+    }//prueba
 }
